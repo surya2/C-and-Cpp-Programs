@@ -1,1 +1,2 @@
 # C-and-Cpp-Programs
+This repository will house all of my C and C++ programs. During the first 2 weeks of my first year summer (2022 summer break), I utilized my time to implement and create all datastrcutures I had learned through the C programming language. All of them have been included in this repository (Java implementations of the same data structures are included in the Java Programs repository).
