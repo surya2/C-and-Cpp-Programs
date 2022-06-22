@@ -16,7 +16,7 @@ tree_node *insertByNode(int value, tree_node *node){
     }
     if(value < (node -> value)) node -> left = insertByNode(value, node -> left);
     else if(value > (node -> value)) node -> right = insertByNode(value, node -> right);
-    else return;
+    else return NULL;
 }
 
 tree_node *find(tree *t, int value){
@@ -58,7 +58,31 @@ void removeByNode(int value, tree_node *node){
     else if (value > node->value) return removeByNode(value, node->right);
 }
 
+int print(tree_node *n, int indent){
+        for(int i = indent; i>0; i--){
+            printf(" ");
+        }
+        printf('-%d  ', n->left->value);
+        printf('-%d', n->right->value);
+        
+        print(n->left, indent+1);
+        print(n->right, indent+1);
+
+        return 0;
+}
+
+void show(tree *t){
+    printf(t->root->value);
+    print(t->root, 0);
+}
+
 int main(){
     bst BST = {Bst, 0, NULL, insert, find, removeByValue};
     avl AVL = {Avl, 0, NULL, insert, find, removeByValue, 0};
+
+    BST.insert(&BST, 12);
+    BST.insert(&BST, 23);
+    BST.insert(&BST, 6);
+    BST.insert(&BST, 43);
+    show(&BST);
 }
